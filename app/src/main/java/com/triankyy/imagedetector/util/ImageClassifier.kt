@@ -9,21 +9,19 @@ package com.triankyy.imagedetector.util
 import android.content.res.AssetManager
 import android.graphics.Bitmap
 import android.util.Log
+import com.triankyy.imagedetector.model.Result
 import com.triankyy.imagedetector.util.Keys.DIM_BATCH_SIZE
 import com.triankyy.imagedetector.util.Keys.DIM_IMG_SIZE_X
 import com.triankyy.imagedetector.util.Keys.DIM_IMG_SIZE_Y
+import com.triankyy.imagedetector.util.Keys.DIM_PIXEL_SIZE
 import com.triankyy.imagedetector.util.Keys.INPUT_SIZE
 import com.triankyy.imagedetector.util.Keys.LABEL_PATH
 import com.triankyy.imagedetector.util.Keys.MAX_RESULTS
 import com.triankyy.imagedetector.util.Keys.MODEL_PATH
-import com.triankyy.imagedetector.model.Result
-import com.triankyy.imagedetector.util.Keys.DIM_PIXEL_SIZE
 import io.reactivex.Single
 import org.tensorflow.lite.Interpreter
-import java.io.BufferedReader
 import java.io.FileInputStream
 import java.io.IOException
-import java.io.InputStreamReader
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.MappedByteBuffer
@@ -39,12 +37,6 @@ class ImageClassifier constructor(assetManager: AssetManager) {
 
     init {
         try {
-//            val br = BufferedReader(InputStreamReader(assetManager.open(LABEL_PATH)))
-//            while (true) {
-//                val line = br.readLine() ?: break
-//                labels.add(line)
-//            }
-//            br.close()
             assetManager.open(LABEL_PATH).bufferedReader().use {
                 while (true) {
                     val line = it.readLine() ?: break
@@ -100,10 +92,10 @@ class ImageClassifier constructor(assetManager: AssetManager) {
             for (i in labels.indices) {
                 pq.add(
                     Result(
-                        "" + i,
-                        if (labels.size > i) labels[i] else "unknown",
-                        labelProb[0][i].toFloat(),
-                        null
+                        id = "" + i,
+                        title = if (labels.size > i) labels[i] else "unknown",
+                        confidence = labelProb[0][i].toFloat(),
+                        location = null
                     )
                 )
             }

@@ -53,20 +53,25 @@ android {
 }
 
 dependencies {
+    val navVersion = "2.5.3"
+    val composeUiVersion = rootProject.extra["compose_ui_version"]
+
+    implementation("androidx.navigation:navigation-compose:$navVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
     implementation("androidx.activity:activity-compose:1.6.1")
-    implementation("androidx.compose.ui:ui:${rootProject.extra["compose_ui_version"]}")
-    implementation("androidx.compose.ui:ui-tooling-preview:${rootProject.extra["compose_ui_version"]}")
-    implementation("androidx.compose.material3:material3:1.0.1")
+    implementation("androidx.compose.ui:ui:${composeUiVersion}")
+    implementation("androidx.compose.ui:ui-tooling-preview:${composeUiVersion}")
+    implementation("androidx.compose.material3:material3:1.1.0-alpha08")
     implementation("org.tensorflow:tensorflow-lite:+")
     implementation("io.reactivex.rxjava2:rxkotlin:2.4.0")
     implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_ui_version"]}")
-    debugImplementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_ui_version"]}")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_ui_version"]}")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${composeUiVersion}")
+    debugImplementation("androidx.compose.ui:ui-tooling:${composeUiVersion}")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:${composeUiVersion}")
 }
