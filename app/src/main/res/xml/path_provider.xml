@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Created by kyy on 3/23/23, 1:14 AM
+  ~ Copyright (c) 2023 . All rights reserved.
+  ~ Last modified 3/23/23, 1:14 AM
+  -->
+
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-cache-path name="my_image" path="/" />
+</paths>

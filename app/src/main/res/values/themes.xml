@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by kyy on 3/23/23, 12:05 AM
+  ~ Copyright (c) 2023 . All rights reserved.
+  ~ Last modified 3/22/23, 10:23 PM
+  -->
+
+<resources>
+
+    <style name="Theme.ImageDetector" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/purple_700</item>
+    </style>
+</resources>
